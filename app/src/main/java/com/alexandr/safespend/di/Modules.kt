@@ -12,7 +12,7 @@ import com.alexandr.safespend.ui.history.HistoryViewModel
 import com.alexandr.safespend.ui.home.HomeViewModel
 import com.alexandr.safespend.ui.settings.SettingsViewModel
 import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 fun dataModule() = module {
