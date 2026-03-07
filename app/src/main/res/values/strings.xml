@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">SafeSpend</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_history">History</string>
+    <string name="nav_analytics">Analytics</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Common -->
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="loading">Loading...</string>
+    <string name="retry">Retry</string>
+    <string name="error_unknown">Unknown error occurred</string>
+    <string name="error_no_data">No data available</string>
+    <string name="error_select_status">Please select a day status</string>
+    <string name="error_invalid_date">Please enter a valid date in YYYY-MM-DD format</string>
+    <string name="error_cannot_open_store">Cannot open Play Store</string>
+    <string name="error_cannot_share_app">Cannot share app</string>
+    <string name="error_cannot_open_privacy">Cannot open privacy policy</string>
+    <string name="error_reset_failed">Failed to reset data</string>
+
+    <!-- Day status -->
+    <string name="status_safe">Safe day</string>
+    <string name="status_overspend">Overspend day</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Safe Days and Streaks</string>
+    <string name="onboarding_desc_1">Learn how streaks work: every safe day without impulse purchases extends your progress.</string>
+    <string name="onboarding_safe_days_explain">Track daily spending manually to build awareness, consistency, and better financial discipline.</string>
+    <string name="onboarding_title_2">Resilience Calculator</string>
+    <string name="onboarding_desc_2">Estimate your financial resilience and review your behavior trends over time.</string>
+    <string name="onboarding_manual_input_explain">Manual input is important: it keeps data accurate and helps you reflect on each day.</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_finish">Finish</string>
+
+    <!-- Home -->
+    <string name="home_title">Your Financial Streak</string>
+    <string name="home_current_streak">Current Streak</string>
+    <string name="home_days">days</string>
+    <string name="home_add_day">Add Day</string>
+    <string name="home_motivation">Small consistent actions build long-term discipline.</string>
+    <string name="home_recent">Recent Days</string>
+    <string name="home_no_data">No data yet. Start logging your days.</string>
+
+    <!-- Add/Edit day -->
+    <string name="add_day_title">Add Day</string>
+    <string name="edit_day_title">Edit Day</string>
+    <string name="add_day_date">Date</string>
+    <string name="add_day_date_hint">Use format YYYY-MM-DD</string>
+    <string name="add_day_safe">Safe Day</string>
+    <string name="add_day_overspend">Overspend</string>
+    <string name="add_day_note">Note (optional)</string>
+    <string name="add_day_save">Save</string>
+    <string name="add_day_cancel">Cancel</string>
+    <string name="add_day_error">Error saving day. Try again.</string>
+
+    <!-- History -->
+    <string name="history_title">History</string>
+    <string name="history_search_hint">Search by note, date or status</string>
+    <string name="history_all">All</string>
+    <string name="history_week">Week</string>
+    <string name="history_month">Month</string>
+    <string name="history_empty">No entries found.</string>
+    <string name="history_no_note">No note</string>
+
+    <!-- Day detail -->
+    <string name="day_detail_title">Day Details</string>
+    <string name="day_detail_note">Note</string>
+    <string name="day_detail_resilience">Resilience score</string>
+    <string name="day_detail_edit">Edit</string>
+    <string name="day_detail_delete">Delete</string>
+
+    <!-- Resilience calculator -->
+    <string name="resilience_title">Resilience Calculator</string>
+    <string name="resilience_score">Score (0-100)</string>
+    <string name="resilience_score_hint">Enter a number from 0 to 100</string>
+    <string name="resilience_calculate">Calculate</string>
+    <string name="resilience_result_format">Score: %1$d / 100</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analytics</string>
+    <string name="analytics_total_streaks">Current streak</string>
+    <string name="analytics_longest_streak">Longest streak</string>
+    <string name="analytics_safe_days">Safe days</string>
+    <string name="analytics_overspend_days">Overspend days</string>
+    <string name="analytics_week">Week</string>
+    <string name="analytics_month">Month</string>
+    <string name="analytics_year">Year</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_privacy">Privacy policy</string>
+    <string name="settings_rate">Rate app</string>
+    <string name="settings_share">Share app</string>
+    <string name="settings_share_message">Check out SafeSpend: https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="settings_privacy_url">https://example.com/privacy</string>
+    <string name="settings_reset">Reset all data</string>
+    <string name="settings_confirm_reset">This will delete all local data. Continue?</string>
+    <string name="settings_version">Version: %1$s</string>
+</resources>

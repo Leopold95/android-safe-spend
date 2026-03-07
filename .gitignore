@@ -1,0 +1,52 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# Build
+build/
+.gradle/
+out/
+*.apk
+*.ap_
+
+# Gradle
+.gradle
+gradlew.local
+
+# Secrets and keys
+*.keystore
+*.key
+*.pem
+secrets.properties
+.env
+.env.local
+api_keys.properties
+
+# OS specific
+Thumbs.db
+
+# Testing
+.coverage/
+coverage.xml
+
+# Temp files
+*.tmp
+*.log
+*.bak
+

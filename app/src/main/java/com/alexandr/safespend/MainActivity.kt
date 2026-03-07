@@ -1,0 +1,133 @@
+package com.alexandr.safespend
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.alexandr.safespend.ui.addday.AddDayScreen
+import com.alexandr.safespend.ui.analytics.AnalyticsScreen
+import com.alexandr.safespend.ui.daydetail.DayDetailScreen
+import com.alexandr.safespend.ui.history.HistoryScreen
+import com.alexandr.safespend.ui.home.HomeScreen
+import com.alexandr.safespend.ui.navigation.NavigationActions
+import com.alexandr.safespend.ui.navigation.Screen
+import com.alexandr.safespend.ui.onboarding.OnboardingScreen1
+import com.alexandr.safespend.ui.onboarding.OnboardingScreen2
+import com.alexandr.safespend.ui.settings.SettingsScreen
+import com.alexandr.safespend.ui.splash.SplashScreen
+import com.alexandr.safespend.ui.theme.AndroidsafespendTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            AndroidsafespendTheme {
+                SafeSpendNavHost()
+            }
+        }
+    }
+}
+
+@Composable
+fun SafeSpendNavHost() {
+    val navController = rememberNavController()
+    val navActions = NavigationActions(navController)
+
+    Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
+        Box(modifier = Modifier.padding(paddingValues)) {
+            NavHost(
+                navController = navController,
+                startDestination = Screen.Splash.route,
+                modifier = Modifier.fillMaxSize()
+            ) {
+                composable(Screen.Splash.route) {
+                    SplashScreen(
+                        onNavigateToOnboarding = navActions.navigateToOnboarding,
+                        onNavigateToHome = navActions.navigateToHome
+                    )
+                }
+
+                composable(Screen.Onboarding1.route) {
+                    OnboardingScreen1(onNavigateNext = navActions.navigateToOnboarding2)
+                }
+
+                composable(Screen.Onboarding2.route) {
+                    OnboardingScreen2(onNavigateFinish = navActions.navigateToHome)
+                }
+
+                composable(Screen.Home.route) {
+                    HomeScreen(
+                        onNavigateToAddDay = navActions.navigateToAddDay,
+                        onNavigateToHistory = navActions.navigateToHistory,
+                        onNavigateToAnalytics = navActions.navigateToAnalytics,
+                        onNavigateToCalculator = navActions.navigateToResilienceCalculator,
+                        onNavigateToSettings = navActions.navigateToSettings
+                    )
+                }
+
+                composable(Screen.History.route) {
+                    HistoryScreen(
+                        onNavigateToDayDetail = navActions.navigateToDayDetail,
+                        onNavigateToAddDay = navActions.navigateToAddDay,
+                        onNavigateBack = navActions.navigateBack
+                    )
+                }
+
+                composable(Screen.Analytics.route) {
+                    AnalyticsScreen(onNavigateBack = navActions.navigateBack)
+                }
+
+                composable(Screen.Settings.route) {
+                    SettingsScreen(onNavigateBack = navActions.navigateBack)
+                }
+
+                composable(
+                    route = Screen.AddDay.route,
+                    arguments = listOf(
+                        navArgument(Screen.AddDay.ARG_DAY_ID) {
+                            type = NavType.IntType
+                            defaultValue = -1
+                        }
+                    )
+                ) { backStackEntry ->
+                    val dayIdArg = backStackEntry.arguments?.getInt(Screen.AddDay.ARG_DAY_ID, -1) ?: -1
+                    val editDayId = if (dayIdArg > 0) dayIdArg else null
+                    AddDayScreen(
+                        editDayId = editDayId,
+                        onNavigateBack = navActions.navigateBack
+                    )
+                }
+
+                composable(
+                    route = Screen.DayDetail.route,
+                    arguments = listOf(navArgument(Screen.DayDetail.ARG_DAY_ID) { type = NavType.IntType })
+                ) { backStackEntry ->
+                    val dayId = backStackEntry.arguments?.getInt(Screen.DayDetail.ARG_DAY_ID) ?: 0
+                    DayDetailScreen(
+                        dayId = dayId,
+                        onNavigateBack = navActions.navigateBack,
+                        onNavigateToEditDay = navActions.navigateToEditDay
+                    )
+                }
+
+                composable(Screen.ResilienceCalculator.route) {
+                    com.alexandr.safespend.ui.resilience.ResilienceCalculatorScreen(
+                        onNavigateBack = navActions.navigateBack
+                    )
+                }
+            }
+        }
+    }
+}
