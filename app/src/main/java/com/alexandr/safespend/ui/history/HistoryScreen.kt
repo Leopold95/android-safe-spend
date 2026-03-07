@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
@@ -34,7 +33,6 @@ import org.koin.androidx.compose.koinViewModel
 fun HistoryScreen(
     onNavigateToDayDetail: (Int) -> Unit,
     onNavigateToAddDay: () -> Unit,
-    onNavigateBack: () -> Unit,
     viewModel: HistoryViewModel = koinViewModel()
 ) {
     val state = viewModel.uiState.collectAsState().value
@@ -60,20 +58,11 @@ fun HistoryScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onNavigateBack) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = stringResource(R.string.back),
-                        tint = theme.colors.textPrimary
-                    )
-                }
-                Text(
-                    text = stringResource(id = R.string.history_title),
-                    style = theme.typography.headlineLarge,
-                    color = theme.colors.textPrimary
-                )
-            }
+            Text(
+                text = stringResource(id = R.string.history_title),
+                style = theme.typography.headlineLarge,
+                color = theme.colors.textPrimary
+            )
 
             IconButton(onClick = onNavigateToAddDay) {
                 Icon(

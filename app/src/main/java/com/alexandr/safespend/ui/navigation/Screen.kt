@@ -1,7 +1,15 @@
 package com.alexandr.safespend.ui.navigation
 
+import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.Analytics
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import com.alexandr.safespend.R
 
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
@@ -25,6 +33,37 @@ sealed class Screen(val route: String) {
 
     object ResilienceCalculator : Screen("resilience_calculator")
 }
+
+data class BottomNavItem(
+    val route: String,
+    @StringRes val labelResId: Int,
+    val icon: ImageVector
+)
+
+val bottomNavItems = listOf(
+    BottomNavItem(
+        route = Screen.Home.route,
+        labelResId = R.string.nav_home,
+        icon = Icons.Default.Home
+    ),
+    BottomNavItem(
+        route = Screen.History.route,
+        labelResId = R.string.nav_history,
+        icon = Icons.AutoMirrored.Filled.List
+    ),
+    BottomNavItem(
+        route = Screen.Analytics.route,
+        labelResId = R.string.nav_analytics,
+        icon = Icons.Default.Analytics
+    ),
+    BottomNavItem(
+        route = Screen.Settings.route,
+        labelResId = R.string.nav_settings,
+        icon = Icons.Default.Settings
+    )
+)
+
+val topLevelRoutes = bottomNavItems.map { it.route }.toSet()
 
 class NavigationActions(private val navController: NavController) {
 

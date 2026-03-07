@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.alexandr.safespend.ui.addday.AddDayScreen
@@ -20,8 +22,10 @@ import com.alexandr.safespend.ui.analytics.AnalyticsScreen
 import com.alexandr.safespend.ui.daydetail.DayDetailScreen
 import com.alexandr.safespend.ui.history.HistoryScreen
 import com.alexandr.safespend.ui.home.HomeScreen
+import com.alexandr.safespend.ui.navigation.BottomNavBar
 import com.alexandr.safespend.ui.navigation.NavigationActions
 import com.alexandr.safespend.ui.navigation.Screen
+import com.alexandr.safespend.ui.navigation.topLevelRoutes
 import com.alexandr.safespend.ui.onboarding.OnboardingScreen1
 import com.alexandr.safespend.ui.onboarding.OnboardingScreen2
 import com.alexandr.safespend.ui.settings.SettingsScreen
@@ -44,8 +48,28 @@ class MainActivity : ComponentActivity() {
 fun SafeSpendNavHost() {
     val navController = rememberNavController()
     val navActions = NavigationActions(navController)
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = backStackEntry?.destination?.route
+    val showBottomBar = currentRoute in topLevelRoutes
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        bottomBar = {
+            if (showBottomBar) {
+                BottomNavBar(
+                    currentDestination = backStackEntry?.destination,
+                    onNavigateToRoute = { route ->
+                        when (route) {
+                            Screen.Home.route -> navActions.navigateToHome()
+                            Screen.History.route -> navActions.navigateToHistory()
+                            Screen.Analytics.route -> navActions.navigateToAnalytics()
+                            Screen.Settings.route -> navActions.navigateToSettings()
+                        }
+                    }
+                )
+            }
+        }
+    ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             NavHost(
                 navController = navController,
@@ -80,17 +104,16 @@ fun SafeSpendNavHost() {
                 composable(Screen.History.route) {
                     HistoryScreen(
                         onNavigateToDayDetail = navActions.navigateToDayDetail,
-                        onNavigateToAddDay = navActions.navigateToAddDay,
-                        onNavigateBack = navActions.navigateBack
+                        onNavigateToAddDay = navActions.navigateToAddDay
                     )
                 }
 
                 composable(Screen.Analytics.route) {
-                    AnalyticsScreen(onNavigateBack = navActions.navigateBack)
+                    AnalyticsScreen()
                 }
 
                 composable(Screen.Settings.route) {
-                    SettingsScreen(onNavigateBack = navActions.navigateBack)
+                    SettingsScreen(onNavigateHomeAfterReset = navActions.navigateToHome)
                 }
 
                 composable(
