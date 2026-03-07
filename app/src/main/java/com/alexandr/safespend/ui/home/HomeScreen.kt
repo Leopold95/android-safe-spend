@@ -117,35 +117,9 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(theme.dimen.md)
             ) {
                 ActionButton(
-                    text = stringResource(id = R.string.nav_history),
-                    icon = Icons.AutoMirrored.Filled.List,
-                    onClick = onNavigateToHistory,
-                    modifier = Modifier.weight(1f)
-                )
-                ActionButton(
-                    text = stringResource(id = R.string.nav_analytics),
-                    icon = Icons.Default.BarChart,
-                    onClick = onNavigateToAnalytics,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-        }
-
-        item {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(theme.dimen.md)
-            ) {
-                ActionButton(
                     text = stringResource(id = R.string.resilience_title),
                     icon = Icons.Default.Calculate,
                     onClick = onNavigateToCalculator,
-                    modifier = Modifier.weight(1f)
-                )
-                ActionButton(
-                    text = stringResource(id = R.string.nav_settings),
-                    icon = Icons.Default.Settings,
-                    onClick = onNavigateToSettings,
                     modifier = Modifier.weight(1f)
                 )
             }
