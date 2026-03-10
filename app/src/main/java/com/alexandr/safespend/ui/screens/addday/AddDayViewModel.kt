@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.addday
+package com.alexandr.safespend.ui.screens.addday
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel

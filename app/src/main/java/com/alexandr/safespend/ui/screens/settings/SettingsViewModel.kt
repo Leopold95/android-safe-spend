@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.settings
+package com.alexandr.safespend.ui.screens.settings
 
 import android.content.Context
 import android.content.Intent

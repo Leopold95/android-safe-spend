@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.resilience
+package com.alexandr.safespend.ui.screens.resilience
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

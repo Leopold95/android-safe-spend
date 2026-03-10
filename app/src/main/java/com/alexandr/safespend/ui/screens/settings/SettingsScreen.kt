@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.settings
+package com.alexandr.safespend.ui.screens.settings
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

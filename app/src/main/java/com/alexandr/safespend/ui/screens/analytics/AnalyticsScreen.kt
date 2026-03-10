@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.analytics
+package com.alexandr.safespend.ui.screens.analytics
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.onboarding
+package com.alexandr.safespend.ui.screens.onboarding
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

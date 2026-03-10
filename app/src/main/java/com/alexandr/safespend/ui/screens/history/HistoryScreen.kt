@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.history
+package com.alexandr.safespend.ui.screens.history
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

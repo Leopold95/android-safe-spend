@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.history
+package com.alexandr.safespend.ui.screens.history
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

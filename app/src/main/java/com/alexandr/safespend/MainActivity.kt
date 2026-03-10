@@ -17,19 +17,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.alexandr.safespend.ui.addday.AddDayScreen
-import com.alexandr.safespend.ui.analytics.AnalyticsScreen
-import com.alexandr.safespend.ui.daydetail.DayDetailScreen
-import com.alexandr.safespend.ui.history.HistoryScreen
-import com.alexandr.safespend.ui.home.HomeScreen
+import com.alexandr.safespend.ui.screens.addday.AddDayScreen
+import com.alexandr.safespend.ui.screens.analytics.AnalyticsScreen
+import com.alexandr.safespend.ui.screens.daydetail.DayDetailScreen
+import com.alexandr.safespend.ui.screens.history.HistoryScreen
+import com.alexandr.safespend.ui.screens.home.HomeScreen
 import com.alexandr.safespend.ui.navigation.BottomNavBar
 import com.alexandr.safespend.ui.navigation.NavigationActions
 import com.alexandr.safespend.ui.navigation.Screen
 import com.alexandr.safespend.ui.navigation.topLevelRoutes
-import com.alexandr.safespend.ui.onboarding.OnboardingScreen1
-import com.alexandr.safespend.ui.onboarding.OnboardingScreen2
-import com.alexandr.safespend.ui.settings.SettingsScreen
-import com.alexandr.safespend.ui.splash.SplashScreen
+import com.alexandr.safespend.ui.screens.onboarding.OnboardingScreen1
+import com.alexandr.safespend.ui.screens.onboarding.OnboardingScreen2
+import com.alexandr.safespend.ui.screens.settings.SettingsScreen
+import com.alexandr.safespend.ui.screens.splash.SplashScreen
 import com.alexandr.safespend.ui.theme.AndroidsafespendTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.daydetail
+package com.alexandr.safespend.ui.screens.daydetail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

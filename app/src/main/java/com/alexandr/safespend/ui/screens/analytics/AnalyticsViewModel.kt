@@ -1,4 +1,4 @@
-package com.alexandr.safespend.ui.home
+package com.alexandr.safespend.ui.screens.analytics
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,15 +10,20 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-data class HomeUiState(
+enum class AnalyticsPeriod {
+    WEEK, MONTH, YEAR
+}
+
+data class AnalyticsUiState(
     val analytics: AnalyticsData = AnalyticsData(),
+    val selectedPeriod: AnalyticsPeriod = AnalyticsPeriod.MONTH,
     val isLoading: Boolean = false,
     val error: String? = null
 )
 
-class HomeViewModel(private val dayRepository: DayRepository) : ViewModel() {
-    private val _uiState = MutableStateFlow(HomeUiState())
-    val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
+class AnalyticsViewModel(private val dayRepository: DayRepository) : ViewModel() {
+    private val _uiState = MutableStateFlow(AnalyticsUiState())
+    val uiState: StateFlow<AnalyticsUiState> = _uiState.asStateFlow()
 
     init {
         loadAnalytics()
@@ -35,6 +40,10 @@ class HomeViewModel(private val dayRepository: DayRepository) : ViewModel() {
                 _uiState.update { it.copy(error = e.message, isLoading = false) }
             }
         }
+    }
+
+    fun setPeriod(period: AnalyticsPeriod) {
+        _uiState.update { it.copy(selectedPeriod = period) }
     }
 
     fun clearError() {
