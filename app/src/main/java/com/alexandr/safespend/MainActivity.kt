@@ -31,6 +31,7 @@ import com.alexandr.safespend.ui.screens.onboarding.OnboardingScreen2
 import com.alexandr.safespend.ui.screens.settings.SettingsScreen
 import com.alexandr.safespend.ui.screens.splash.SplashScreen
 import com.alexandr.safespend.ui.theme.AndroidsafespendTheme
+import com.alexandr.safespend.ui.screens.resilience.ResilienceCalculatorScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,7 +147,7 @@ fun SafeSpendNavHost() {
                 }
 
                 composable(Screen.ResilienceCalculator.route) {
-                    com.alexandr.safespend.ui.resilience.ResilienceCalculatorScreen(
+                    ResilienceCalculatorScreen(
                         onNavigateBack = navActions.navigateBack
                     )
                 }

@@ -4,13 +4,15 @@ import androidx.room.Room
 import com.alexandr.safespend.data.datastore.SettingsDataStore
 import com.alexandr.safespend.data.db.AppDatabase
 import com.alexandr.safespend.data.db.DayEntryDao
+import com.alexandr.safespend.data.db.ResilienceCheckDao
 import com.alexandr.safespend.data.repository.DayRepository
-import com.alexandr.safespend.ui.addday.AddDayViewModel
-import com.alexandr.safespend.ui.analytics.AnalyticsViewModel
-import com.alexandr.safespend.ui.daydetail.DayDetailViewModel
-import com.alexandr.safespend.ui.history.HistoryViewModel
-import com.alexandr.safespend.ui.home.HomeViewModel
-import com.alexandr.safespend.ui.settings.SettingsViewModel
+import com.alexandr.safespend.ui.screens.addday.AddDayViewModel
+import com.alexandr.safespend.ui.screens.analytics.AnalyticsViewModel
+import com.alexandr.safespend.ui.screens.daydetail.DayDetailViewModel
+import com.alexandr.safespend.ui.screens.history.HistoryViewModel
+import com.alexandr.safespend.ui.screens.home.HomeViewModel
+import com.alexandr.safespend.ui.screens.resilience.ResilienceCalculatorViewModel
+import com.alexandr.safespend.ui.screens.settings.SettingsViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -27,7 +29,9 @@ fun dataModule() = module {
             androidContext(),
             AppDatabase::class.java,
             "safespend_db"
-        ).build()
+        )
+            .addMigrations(AppDatabase.MIGRATION_1_2)
+            .build()
     }
 
     // DAOs
@@ -35,9 +39,13 @@ fun dataModule() = module {
         get<AppDatabase>().dayEntryDao()
     }
 
+    single<ResilienceCheckDao> {
+        get<AppDatabase>().resilienceCheckDao()
+    }
+
     // Repository
     single {
-        DayRepository(get())
+        DayRepository(get(), get())
     }
 }
 
@@ -57,6 +65,10 @@ fun uiModule() = module {
 
     viewModel {
         AnalyticsViewModel(get())
+    }
+
+    viewModel {
+        ResilienceCalculatorViewModel(get())
     }
 
     viewModel {

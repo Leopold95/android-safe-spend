@@ -6,6 +6,7 @@ import androidx.annotation.StringRes
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alexandr.safespend.BuildConfig
 import com.alexandr.safespend.R
 import com.alexandr.safespend.data.datastore.SettingsDataStore
 import com.alexandr.safespend.data.repository.DayRepository
@@ -33,12 +34,7 @@ class SettingsViewModel(
     )
     val uiState: StateFlow<SettingsUiState> = _uiState.asStateFlow()
 
-    private val applicationId: String by lazy {
-        runCatching {
-            val clazz = Class.forName("${appContext.packageName}.BuildConfig")
-            clazz.getField("APPLICATION_ID").get(null) as? String
-        }.getOrNull().orEmpty().ifBlank { appContext.packageName }
-    }
+    private val applicationId: String = BuildConfig.APPLICATION_ID
 
     fun rateApp() {
         try {

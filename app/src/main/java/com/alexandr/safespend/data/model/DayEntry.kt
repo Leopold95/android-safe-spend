@@ -37,6 +37,8 @@ data class AnalyticsData(
     val longestStreak: Int = 0,
     val totalSafeDays: Int = 0,
     val totalOverspendDays: Int = 0,
-    val allDays: List<DayEntry> = emptyList()
+    val allDays: List<DayEntry> = emptyList(),
+    val resiliencePoints: List<ResilienceChartPoint> = emptyList(),
+    val averageResilienceScore: Int? = null,
+    val latestResilienceScore: Int? = null
 )
-

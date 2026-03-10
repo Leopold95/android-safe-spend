@@ -11,7 +11,7 @@
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
     <string name="back">Back</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="retry">Retry</string>
     <string name="error_unknown">Unknown error occurred</string>
     <string name="error_no_data">No data available</string>
@@ -75,10 +75,15 @@
 
     <!-- Resilience calculator -->
     <string name="resilience_title">Resilience Calculator</string>
-    <string name="resilience_score">Score (0-100)</string>
+    <string name="resilience_score">Score (0–100)</string>
     <string name="resilience_score_hint">Enter a number from 0 to 100</string>
     <string name="resilience_calculate">Calculate</string>
     <string name="resilience_result_format">Score: %1$d / 100</string>
+    <string name="resilience_date">Date</string>
+    <string name="resilience_note">Reflection note (optional)</string>
+    <string name="resilience_save_result">Save result</string>
+    <string name="resilience_saved_message">Saved to analytics</string>
+    <string name="resilience_error_invalid_score">Enter a valid score from 0 to 100</string>
 
     <!-- Analytics -->
     <string name="analytics_title">Analytics</string>
@@ -89,6 +94,14 @@
     <string name="analytics_week">Week</string>
     <string name="analytics_month">Month</string>
     <string name="analytics_year">Year</string>
+    <string name="analytics_resilience_chart">Resilience trend</string>
+    <string name="analytics_resilience_average">Average resilience</string>
+    <string name="analytics_resilience_latest">Latest resilience</string>
+    <string name="analytics_no_chart_data">No resilience data for this period yet.</string>
+    <string name="analytics_recommendation_title">Recommendation</string>
+    <string name="analytics_recommendation_high">You are showing strong financial discipline. Keep logging each day to protect the streak.</string>
+    <string name="analytics_recommendation_medium">Your discipline is moving in the right direction. Review notes from overspend days and aim for steadier routines.</string>
+    <string name="analytics_recommendation_low">Start with small safe-day goals and record your decisions daily to build a more stable streak.</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>

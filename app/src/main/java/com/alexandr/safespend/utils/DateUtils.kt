@@ -21,6 +21,13 @@ object DateUtils {
         }.getOrDefault(isoDate)
     }
 
+    fun formatIsoDateShort(isoDate: String): String {
+        return runCatching {
+            val parsed = displayInput.parse(isoDate) ?: return@runCatching isoDate
+            SimpleDateFormat("dd MMM", Locale.US).format(parsed)
+        }.getOrDefault(isoDate)
+    }
+
     fun String.parseToLocalDate(): LocalDate {
         return LocalDate.parse(this, isoFormatter)
     }
