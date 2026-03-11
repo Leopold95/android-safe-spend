@@ -17,21 +17,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.alexandr.safespend.ui.navigation.BottomNavBar
+import com.alexandr.safespend.ui.navigation.NavigationActions
+import com.alexandr.safespend.ui.navigation.Screen
+import com.alexandr.safespend.ui.navigation.topLevelRoutes
 import com.alexandr.safespend.ui.screens.addday.AddDayScreen
 import com.alexandr.safespend.ui.screens.analytics.AnalyticsScreen
 import com.alexandr.safespend.ui.screens.daydetail.DayDetailScreen
 import com.alexandr.safespend.ui.screens.history.HistoryScreen
 import com.alexandr.safespend.ui.screens.home.HomeScreen
-import com.alexandr.safespend.ui.navigation.BottomNavBar
-import com.alexandr.safespend.ui.navigation.NavigationActions
-import com.alexandr.safespend.ui.navigation.Screen
-import com.alexandr.safespend.ui.navigation.topLevelRoutes
 import com.alexandr.safespend.ui.screens.onboarding.OnboardingScreen1
 import com.alexandr.safespend.ui.screens.onboarding.OnboardingScreen2
+import com.alexandr.safespend.ui.screens.resilience.ResilienceCalculatorScreen
 import com.alexandr.safespend.ui.screens.settings.SettingsScreen
 import com.alexandr.safespend.ui.screens.splash.SplashScreen
 import com.alexandr.safespend.ui.theme.AndroidsafespendTheme
-import com.alexandr.safespend.ui.screens.resilience.ResilienceCalculatorScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
